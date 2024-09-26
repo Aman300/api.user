@@ -6,8 +6,8 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const port = 3000;
 
 app.get('/', async (req, res) => {
-  let currentPage = 11; //done by 10 next 11 page start
-  const limit = 100; // Fetch 20 records at a time
+  let currentPage = 1; //done by 10 next 11 page start
+  const limit = 1000; // Fetch 20 records at a time
   const url = 'https://api.starludo.club/api/v1/user/all';
 
   // CSV Writer configuration
