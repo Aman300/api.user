@@ -6,8 +6,8 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const port = 3000;
 
 app.get('/', async (req, res) => {
-  let currentPage = 1; //done by 10 next 11 page start
-  const limit = 1000; // Fetch 20 records at a time
+  let currentPage = 102; //done by 10 next 11 page start
+  const limit = 20; // Fetch 20 records at a time
   const url = 'https://api.starludo.club/api/v1/user/all';
 
   // CSV Writer configuration
@@ -17,12 +17,22 @@ app.get('/', async (req, res) => {
       { id: 'user_type', title: 'User Type' },
       { id: 'Name', title: 'Name' },
       { id: 'aadhar_name', title: 'Aadhar Name' },
-      { id: 'otp', title: 'OTP' },
       { id: 'Email', title: 'Email' },
-      { id: 'Email_varified_at', title: 'Email Verified At' },
-      { id: 'sessionID', title: 'Session ID' },
       { id: 'Phone', title: 'Phone' },
-      { id: 'Mobile_varified_at', title: 'Mobile Verified At' },
+      { id: 'Wallet_balance', title: 'Wallet_balance' },
+      { id: 'device_key', title: 'device_key' },
+      { id: 'referral', title: 'referral' },
+      { id: 'referral_code', title: 'referral_code' },
+      { id: 'holder_name', title: 'holder_name' },
+      { id: 'upi_id', title: 'upi_id' },
+      { id: 'account_number', title: 'account_number' },
+      { id: 'bank_name', title: 'bank_name' },
+      { id: 'ifsc_code', title: 'ifsc_code' },
+      { id: 'address', title: 'address' },
+      { id: 'dob', title: 'dob' },
+      { id: 'aadhar', title: 'aadhar' },
+
+
     ],
     append: true, // To append data to the CSV file after every batch
   });
@@ -39,7 +49,7 @@ app.get('/', async (req, res) => {
         url: `${url}?page=${currentPage}&limit=${limit}`,
         headers: {
           Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IiIsInBob25lIjo3MzI0ODIxNTM0LCJ1c2VySWQiOiI2NmRlZjYzNDJkOWExNmM2OWI4YmNkNWYiLCJzZXNzaW9uSWQiOiI2NmVjNjcyZTc1NWI2ZDE5NTgyNjViODMiLCJ1c2VyVHlwZSI6IlVzZXIiLCJpYXQiOjE3MjY3Njg5NDIsImV4cCI6MzQ2MTMxMzg4NH0.IP4cOj85HW4iTaPDJ2wG5v4nNBNok5OCU42Vetd6hAA',
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IiIsInBob25lIjo5NTQ5Njg5Nzg0LCJ1c2VySWQiOiI2NmY1NDllZWY4MGZhYjIwNzk5ZGJhNTEiLCJzZXNzaW9uSWQiOiI2NmY1NDlmY2Y4MGZhYjIwNzk5ZGMwMzgiLCJ1c2VyVHlwZSI6IlVzZXIiLCJpYXQiOjE3MjczNTEyOTIsImV4cCI6MzQ2MjQ3ODU4NH0.2ZO9dXYJefHvQfzvCD9-ZVPvI-BiJzCgi9leR4UnicE',
         },
       };
 
